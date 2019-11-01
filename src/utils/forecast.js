@@ -11,7 +11,7 @@ request({ url, json: true }, (error, {body}) => {
         callback('Unable to find location.', undefined);
     }
     else {
-        callback(undefined, `It is currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability}% chance of rain.`);
+        callback(undefined, `It is currently ${body.currently.temperature} degrees out. Today temperature min: ${body.daily.data[0].temperatureMin}, temperature max: ${body.daily.data[0].temperatureMax} There is a ${body.currently.precipProbability}% chance of rain.`);
     }
 });
 
