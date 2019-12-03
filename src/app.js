@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 require('./mongoose');
+const taskRouter = require('./utils/task');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -86,6 +87,8 @@ app.get('/help/*', (req, res) => {
         errorMessage: 'Help article not found.'
     });
 });
+
+app.use(taskRouter);
 
 app.get('*', (req, res) => {
     res.render('404', {
